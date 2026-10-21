@@ -114,7 +114,7 @@ Profile helper: `DUNE(s)` = the pole's Dune profile from the reference section s
 7. **Fins ×3**, 5 thick, vertical plates merged into the hub wall, bottom edge at Z = 2, top edge straight from 30 tall at the hub to 8 tall at the tip, tip rounded R5 in plan, leading edges chamfered 1.5:
    - F1 along +X from the hub to (190, 0).
    - F2, F3 from the hub toward (−40, +150) and (−40, −150) (centrelines through the axis).
-   Under each tip a Ø15 × 2 recess from below for a TPU pad Ø15 × 4 (pads touch the table at Z = 0; the hub rim and fin bottoms float at Z = 2).
+   Each tip ends in a Ø16 × 8 toe with a Ø13 × 2 recess from below for a TPU pad Ø13 × 4 (pads touch the table at Z = 0; the hub rim and fin bottoms float at Z = 2). The full pole brief with the print split is `arrakis-rail-pole-cad-brief.md`.
 8. **Button hole**: Ø**19.2** through the roof's +X facet, axis normal to the facet, centred at X = 31.5, Y = 0, Z = 56. Keep a Ø26 flat landing around it for the nut; the button body needs 35 mm clear behind the wall (it is a 19 mm anti-vandal push button; latching or momentary as supplied).
 9. **XT60E-M cut-out** on the flat back face (X = −62), centred at Y = 0, Z = 17: rectangular opening **16.0 × 8.6** with R1 corners (long side along Y), plus two Ø2.7 holes on the Y axis at **21.4** centres for M2.5 screws. The connector's flange is 27.1 × 9.1; recess it 1 mm into the outside of the wall. **Verify the hole spacing and screw size against the AMASS XT60E-M drawing or a physical part before cutting; sources disagree (M2.5 vs M3).**
 10. Decorative: three 1 × 1 grooves around the clamp zone at Z = 335, 345, 355 are *not* wanted (the collar carries the grooves); leave the pole plain. Chamfer 1 × 45° on the hub rim and fin bottoms.
