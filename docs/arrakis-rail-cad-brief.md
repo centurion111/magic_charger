@@ -25,7 +25,7 @@ Profile "Dune", extruded along Z:
 
 - A circle Ø70 centred on the axis for X ≥ 0 (the round half faces the arm).
 - For X ≤ 0 the profile grows into a crest: two arcs of **R70**, one centred at (0, −35) running from (0, +35) to the nose, one centred at (0, +35) running from (0, −35) to the nose. They meet at (−60.6, 0) at 60°; round the nose **R6**. Overall 70 wide (Y) × 95.6 long (X).
-- Hollow, wall 3.
+- Hollow, wall 5 (the full pole-foot is Part 5 below; for the head's fit checks a 200 mm stub of the clamp zone is enough).
 - **Cable slot**: on the round face, centred on Y = 0 at X ≈ +35, width **8** (Y ±4), length **160** along Z with R2 ends. Place it so the slot spans Z = −60 … +100 in the head's frame when the collar sits mid-range. The head's cable passes through this slot into the hollow pole and hangs down to the base.
 - Bore clearance for the head: profile offset by +0.1 all round (Ø70.2 on the circle).
 
@@ -99,8 +99,32 @@ Tube Ø6.0 outside, Ø4.0 bore, 11 long, with a 1 mm lip at one end, for the cab
 6. Mass of part 1 with 30 % infill under 220 g; centre of mass of the full head within 90 mm of the pole axis (report the numbers).
 7. No overhang > 45° in the stated print orientations; report any.
 
+### Part 5 — Pole-foot "Thumper" (one hollow body, sand or bronze PLA)
+
+Frame for this part: origin on the pole axis at the **table surface**, Z up, +X toward the blade (the pole's round face), +Y as before. Everything is a shell with **5 mm walls**, hollow, open at the bottom. Build it as one solid, then split it for printing (below).
+
+Profile helper: `DUNE(s)` = the pole's Dune profile from the reference section scaled by `s` about the axis (circle R 35·s on the +X side, two R 70·s crest arcs centred at (0, ∓35·s) meeting at X = −60.6·s, nose rounded R 6·s).
+
+1. **Hub**: `DUNE(1.3)` (91 wide × 124 long) extruded Z = 2 … 32, then truncated by a flat back face at **X = −62** (the flat is 42 wide). Shell it 5 mm, open at Z = 2.
+2. **Roof**: loft from the hub outline at Z = 32 to `DUNE(0.5)` at Z = 80; shell 5 mm. Every roof facet must be ≥ 45° from horizontal (the loft gives 60° on the round side and 45° at the crest; report if any facet is shallower).
+3. **Stem**: `DUNE(0.5)` (35 × 48, inside about 25 × 38) extruded Z = 80 … 290, wall 5.
+4. **Flare**: loft `DUNE(0.5)` at Z = 290 to `DUNE(1.0)` at Z = 320, wall 5.
+5. **Clamp zone**: `DUNE(1.0)` extruded Z = 320 … 500, wall 5. **Slot** 8 wide (Y ±4), R4 ends, through the +X wall from Z = 330 to 490.
+6. **Spire**: loft `DUNE(1.0)` at Z = 500 to a 4 mm wide ridge along the X axis from X = −40 to +20 at Z = 560; closed, solid ridge, every face ≥ 60°.
+7. **Fins ×3**, 5 thick, vertical plates merged into the hub wall, bottom edge at Z = 2, top edge straight from 30 tall at the hub to 8 tall at the tip, tip rounded R5 in plan, leading edges chamfered 1.5:
+   - F1 along +X from the hub to (190, 0).
+   - F2, F3 from the hub toward (−40, +150) and (−40, −150) (centrelines through the axis).
+   Under each tip a Ø15 × 2 recess from below for a TPU pad Ø15 × 4 (pads touch the table at Z = 0; the hub rim and fin bottoms float at Z = 2).
+8. **Button hole**: Ø**19.2** through the roof's +X facet, axis normal to the facet, centred at X = 31.5, Y = 0, Z = 56. Keep a Ø26 flat landing around it for the nut; the button body needs 35 mm clear behind the wall (it is a 19 mm anti-vandal push button; latching or momentary as supplied).
+9. **XT60E-M cut-out** on the flat back face (X = −62), centred at Y = 0, Z = 17: rectangular opening **16.0 × 8.6** with R1 corners (long side along Y), plus two Ø2.7 holes on the Y axis at **21.4** centres for M2.5 screws. The connector's flange is 27.1 × 9.1; recess it 1 mm into the outside of the wall. **Verify the hole spacing and screw size against the AMASS XT60E-M drawing or a physical part before cutting; sources disagree (M2.5 vs M3).**
+10. Decorative: three 1 × 1 grooves around the clamp zone at Z = 335, 345, 355 are *not* wanted (the collar carries the grooves); leave the pole plain. Chamfer 1 × 45° on the hub rim and fin bottoms.
+
+**Print split**: cut the body at Z = 200 and Z = 400 into three segments of 200 mm; at each cut the upper segment carries a 20 mm spigot (inner profile offset −0.2) that glues into the lower segment. Fins: either integral (needs a 300 × 300 bed) or printed flat and dovetailed into the hub wall (dovetail 12 wide, 6 deep, 8° flanks, full fin height) — expose this as parameter `FINS` (integral | dovetail). All segments print standing on their lower cut face with no supports; the hub prints on its open rim.
+
+**Checks**: wall ≥ 5 everywhere except the stated 5 (report thinner spots); roof and spire facets ≥ 45°; support polygon (190, 0), (−40, ±150) contains the whole-lamp centre of mass with ≥ 50 mm margin on every edge, taking the head at 0.30 kg with its centre at X = 80, Z = 400 and this part's mass from the model; cable path Ø6 clear from the slot to the hub cavity; mass of this part at 5 mm walls (expect about 0.7 kg).
+
 ## Deliverables
 
-- `deck_half.step/.stl`, `cap.step/.stl`, `trough_cover.step/.stl`, `grommet.step/.stl`, `pole_stub_reference.step` (200 mm, slot included), `arrakis_rail_head_assembly.step`.
-- A short report: the check results above, the plateau polygon you obtained from the chamfer, any dimension you had to change and why.
-- Parameters to expose: `BORE_PROFILE` (dune | round | reuleaux), `BLADE_OUTLINE` (hawk | crest | shield), `HAND` (left | right), `STRIP_WIDTH` (8), `STRIP_LENGTH` (150), `POLE_D` (70).
+- `deck_half.step/.stl`, `cap.step/.stl`, `trough_cover.step/.stl`, `grommet.step/.stl`, `pole_foot_segment_1.step/.stl` (hub, fins, stem to 200), `pole_foot_segment_2.step/.stl` (200 to 400), `pole_foot_segment_3.step/.stl` (400 to 560), `fin.step/.stl` when `FINS = dovetail`, `arrakis_rail_assembly.step` (head on the pole at mid-range).
+- A short report: the check results above, the plateau polygon you obtained from the chamfer, the roof facet angles, the stability margins, any dimension you had to change and why.
+- Parameters to expose: `BORE_PROFILE` (dune | round | reuleaux), `BLADE_OUTLINE` (hawk | crest | shield), `HAND` (left | right), `STRIP_WIDTH` (8), `STRIP_LENGTH` (150), `POLE_D` (70), `WALL` (5), `FINS` (integral | dovetail), `BUTTON_D` (19.2), `XT60_HOLE_PITCH` (21.4).
