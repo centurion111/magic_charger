@@ -1,7 +1,7 @@
 # Arrakis Rail — CAD brief for the pole and foot ("Thumper", pyramid foot)
 
 Prompt for an external CAD / 3D-modelling agent. Paste everything below the line.
-Design reference: Claude Design canvas "Dune LED Strip Holder", sheet 09 (Rev D, 2026-10-21). The lamp head is a separate brief (`arrakis-rail-cad-brief.md`); this brief is self-contained for the pole.
+Design reference: Claude Design canvas "Dune LED Strip Holder", sheet 09 (Rev E, 2026-10-22). The lamp head is a separate brief (`arrakis-rail-cad-brief.md`); this brief is self-contained for the pole.
 
 ---
 
@@ -34,7 +34,7 @@ Every horizontal section of the pole above the foot is the same teardrop. Define
 1. **Pyramid foot** — loft from `FOOT` at Z = 2 to `DUNE` at Z = 160, guided so that the (185, 0) corner meets the pole's round face at (35, 0), the two rear corners meet the pole's sides at (0, ±35), and the midpoint of the rear side meets the crest at (−60.6, 0). Fillet the three lateral edges (corner to pole) **R20** so the pyramid has curved edges. Shell 5 mm, open at Z = 2. Face angles from horizontal: front about 47°, sides about 59°, rear about 87°; nothing may be shallower than 45°.
 2. **Pole** — `DUNE` extruded Z = 160 … 500, 5 mm wall. **Cable slot**: 8 wide (Y ±4), ends R4, cut through the +X wall from Z = 330 to Z = 490. The face between Z = 320 and 500 is where the head's split collar (bore `DUNE` + 0.1) clamps; keep it smooth, no grooves or text.
 3. **Spire** — loft `DUNE` at Z = 500 to a 4 mm wide ridge along the X axis from X = −40 to X = +20 at Z = 560; the ridge is solid, every face ≥ 60°. The top is closed.
-4. **Pads** — inside each rounded corner of the foot add a boss 24 × 24 × 8 (Z = 2 … 10) merged into the wall, with a Ø13 × 2 recess from below centred at **(170, 0)**, **(−58, +115)** and **(−58, −115)** for TPU pads Ø13 × 4. The pads touch the table at Z = 0; the rim floats at Z = 2.
+4. **Pads** — inside each rounded corner of the foot add a boss 24 × 24 × 8 (Z = 2 … 10) merged into the wall, with a Ø13 × 2 recess from below centred at **(143, 0)**, **(−52, +100)** and **(−52, −100)** for TPU pads Ø13 × 4. These sit inside the R25 corner roundings (the front corner's outline only reaches X = 155), at least 5 mm of wall around each recess. The pads touch the table at Z = 0; the rim floats at Z = 2.
 5. **Button hole** — on the front face (the one that rises from the (185, 0) corner), centred at Y = 0, **Z = 70**, which falls at X ≈ 120. Ø**19.2** through the wall, axis normal to the face (about 43° above horizontal, pointing at the user). Flatten a Ø26 landing around the hole on the outside, 0.5 deep, so the bezel and nut seat flat. Clear space inside: a Ø24 cylinder 35 long behind the hole. (A 19 mm anti-vandal push button; latching or momentary as supplied.)
 6. **XT60E-M cut-out** — on the rear face, centred at Y = 0, **Z = 20**, which falls at X ≈ −69: a rectangular opening **16.0 × 8.6**, R1 corners, long side along Y, axis along −X; two screw holes on the Y axis at **21.4** centres, Ø**2.2** for M2.5 screws threading straight into the 5 mm wall. Recess the connector's 27.1 × 9.1 flange 1 mm into the outside face. Keep 25 mm clear behind the wall for solder tails and heat-shrink. **Verify 21.4 and the screw size against the AMASS XT60E-M drawing or a physical part before cutting; retailers disagree (M2.5 vs M3).**
 7. Finishing — 1 × 45° chamfer on the rim; break every other edge 0.5. No decorative grooves on the pole (the head's collar carries them).
@@ -69,7 +69,7 @@ Cut the body at **Z = 200** and **Z = 400**. The profile is asymmetric, so every
 3. Slot: continuous 8 wide from Z = 330 to 490 across the P2/P3 joint, spigot notch included.
 4. Cable path: a Ø6 sphere passes from the slot to the XT60 opening.
 5. Button and XT60 clearances inside the foot as stated; the button's Ø24 nut clears the wall and the pad bosses.
-6. Stability: support triangle with vertices at the three pad centres (170, 0), (−58, ±115). Compute the whole-lamp centre of mass from the model masses plus the head (0.30 kg at X = 80, Z = 400). Required: ≥ 50 mm margin from the centre of mass to every edge of the triangle; report the margins and the tip-over force at the blade tip (X = 256, Z = 400, downward) and sideways at the head (Z = 400). Expected: about 1.5 kg total, centre 21 mm toward +X, about 2.1 kg and 0.21 kg.
+6. Stability: support triangle with vertices at the three pad centres (143, 0), (−52, ±100). Compute the whole-lamp centre of mass from the model masses plus the head (0.30 kg at X = 80, Z = 400). Required: ≥ 50 mm margin from the centre of mass to every edge of the triangle; report the margins and the tip-over force at the blade tip (X = 256, Z = 400, downward) and sideways at the head (Z = 400). Expected: about 1.5 kg total, centre 21 mm toward +X, margins about 56 mm (front edges) and 73 mm (rear), about 1.6 kg and 0.21 kg.
 7. Bed fit: report the footprint and height of each part for a 260 bed and, with `FOOT_SPLIT = halves`, for a 200 bed.
 8. Mass per part at 5 mm walls; expect about 1.2 kg for P1 + P2 + P3 (foot about 630 g). Also report the total if `WALL` were 3.
 
