@@ -1,6 +1,8 @@
 # Arrakis Rail — CAD brief for the lamp head
 
 Prompt for an external CAD / 3D-modelling agent. Paste everything below the line.
+
+> Note: for the proposed design (Seeker pole, Shield Wall foot, Hawk head) use `arrakis-rail-stl-brief.md`, which covers every part in one prompt. This file stays as the head-only brief.
 The design drawings live in the Claude Design canvas "Dune LED Strip Holder" (sheets 01–08, Rev C, 2026-10-21). The pole and foot have their own brief, `arrakis-rail-pole-cad-brief.md`.
 
 ---

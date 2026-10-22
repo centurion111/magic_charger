@@ -1,6 +1,8 @@
 # Arrakis Rail — CAD brief for the pole and foot ("Thumper", pyramid foot)
 
 Prompt for an external CAD / 3D-modelling agent. Paste everything below the line.
+
+> Note: this is the Thumper pole variant. The proposed design (telescopic Seeker pole on the Shield Wall foot) is specified in `arrakis-rail-stl-brief.md`.
 Design reference: Claude Design canvas "Dune LED Strip Holder", sheet 09 (Rev E, 2026-10-22). The lamp head is a separate brief (`arrakis-rail-cad-brief.md`); this brief is self-contained for the pole.
 
 ---
